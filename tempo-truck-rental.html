@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tempo & Truck Rental - QuickFix Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 relative">
+  <!-- Header -->
+  <header class="bg-blue-600 text-white text-center p-6">
+    <h1 class="text-3xl font-bold">Tempo & Truck Rental Services</h1>
+    <p class="text-lg">Find the best tempo & truck rental services near you!</p>
+  </header>
+
+  <!-- Staff Section -->
+  <section class="py-10 px-5">
+    <h2 class="text-2xl font-bold text-center">Tempo & Truck Rental Staff</h2>
+    <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-8 gap-10 mt-10">
+      <!-- Provider 1 -->
+      <div class="p-4 bg-white rounded-lg shadow-md text-center">
+        <img src="G VEERESH.jpeg" alt="Staff Image" class="mx-auto rounded-full mb-3 cursor-pointer" onclick="showModal('G VEERESH.jpeg', 'G VEERESH', '🚛 Tempo Rental', '10 Years', 'BALLARI', '+91 8531944141')">
+        <h3 class="text-lg font-bold">G VEERESH</h3>
+        <p class="text-gray-600">🚛 Tempo Rental</p>
+        <p class="text-sm text-gray-500">Experience: 10 Years</p>
+        <p class="text-sm text-gray-500">📍 Location: BALLARI</p>
+        <p class="text-sm text-gray-500">📞 Contact: +91 8531944141</p>
+      </div>
+
+      <!-- Provider 2 -->
+      <div class="p-4 bg-white rounded-lg shadow-md text-center">
+        <img src="https://via.placeholder.com/100" alt="Staff Image" class="mx-auto rounded-full mb-3 cursor-pointer" onclick="showModal('https://via.placeholder.com/100', 'Vikram Singh', '🚛 Tempo & Truck Rental', '8 Years', 'Bangalore', '+91 9988776611')">
+        <h3 class="text-lg font-bold">Vikram Singh</h3>
+        <p class="text-gray-600">🚛 Tempo & Truck Rental</p>
+        <p class="text-sm text-gray-500">Experience: 8 Years</p>
+        <p class="text-sm text-gray-500">📍 Location: Bangalore</p>
+        <p class="text-sm text-gray-500">📞 Contact: +91 9988776611</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Home -->
+  <div class="text-center mt-8">
+    <a href="index.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">Back to Home</a>
+  </div>
+
+  <!-- Fullscreen Modal -->
+  <div id="modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg max-w-3xl w-full flex flex-col md:flex-row items-center relative">
+      <img id="modalImg" src="" alt="Staff" class="w-full md:w-1/2 rounded-lg mb-4 md:mb-0 md:mr-6">
+      <div>
+        <h3 id="modalName" class="text-xl font-bold mb-2"></h3>
+        <p id="modalRole" class="text-gray-600 mb-1"></p>
+        <p id="modalExp" class="text-sm text-gray-500 mb-1"></p>
+        <p id="modalLocation" class="text-sm text-gray-500 mb-1"></p>
+        <p class="text-sm text-gray-500">
+          📞 Contact: <a id="modalContact" href="" class="text-blue-600 hover:underline"></a>
+        </p>
+      </div>
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-red-600 text-2xl">&times;</button>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    function showModal(img, name, role, exp, location, contact) {
+      document.getElementById('modalImg').src = img;
+      document.getElementById('modalName').textContent = name;
+      document.getElementById('modalRole').textContent = role;
+      document.getElementById('modalExp').textContent = 'Experience: ' + exp;
+      document.getElementById('modalLocation').textContent = '📍 Location: ' + location;
+
+      const contactEl = document.getElementById('modalContact');
+      contactEl.textContent = contact;
+      contactEl.href = 'tel:' + contact.replace(/\s+/g, '');
+      
+      document.getElementById('modal').classList.remove('hidden');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>
